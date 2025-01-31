@@ -22,3 +22,6 @@ down:
 
 llama-3-8b:
 	cd models && ../docker-entrypoint.sh $@
+
+deepseek-r1-distill-qwen-7B:
+	cd models && ../docker-entrypoint.sh $@
