@@ -5,7 +5,7 @@ services:
     environment:
       - GGML_CUDA_NO_PINNED=1
       - LLAMA_ARG_CTX_SIZE=2048
-      - LLAMA_ARG_MODEL=/models/DeepSeek-R1-Distill-Qwen-7B-Q5_K_M.gguf
+      - LLAMA_ARG_MODEL=/models/${MODEL_FILE}
       - LLAMA_ARG_N_GPU_LAYERS=99
     volumes:
       - ./models:/models

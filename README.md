@@ -5,15 +5,25 @@ Docker container.
 
 ## Minimum requirements
 
-By default, the service requires a CUDA capable GPU with at least 8GB+ of VRAM. 
+By default, the service requires a CUDA capable GPU with at least 8GB+ of VRAM.
+
 If you don't have an Nvidia GPU with CUDA then the CPU version will be built and
-used instead.
+used instead (this is fine for Apple Silicon).
 
 ## Quickstart
 
+model_list:
+    - llama-3-8b
+    - deepseek-r1-distill-qwen-7B
+
 ```bash
+# sets the model file name
+export MODEL_FILE=DeepSeek-R1-Distill-Qwen-7B-Q5_K_M.gguf
+# builds the base image
 make build
-make llama-3-8b
+# downloads the given .gguf model file to ./models dir
+make {model_list_item}
+# start the inference and chat server
 make up
 ```
 
