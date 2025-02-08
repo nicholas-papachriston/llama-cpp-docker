@@ -20,8 +20,13 @@ endif
 down:
 	$(DOCKER) compose down
 
-llama-3-8b:
+MODEL_NAME := \
+	DeepSeek-R1-Distill-Qwen-7B-Q5_K_M
+
+.PHONY: $(MODEL_NAME)
+$(MODEL_NAME):
 	cd models && ../docker-entrypoint.sh $@
 
-deepseek-r1-distill-qwen-7b:
-	cd models && ../docker-entrypoint.sh $@
+list-models:
+	@echo "Available models:"
+	@echo "$(MODELS)" | tr ' ' '\n' | sed 's/^/- /'
